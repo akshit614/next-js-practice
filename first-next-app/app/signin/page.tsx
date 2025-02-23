@@ -1,8 +1,8 @@
 const Signin = () => {
     return (
-        <div className="h-screen flex justify-center flex-col">
-            <div className="flex justify-center">
-                <div className="max-w-sm block shadow-xl rounded-xl p-6 border hover:bg-gray-100">
+        <div className="flex justify-center p-20">
+            <div className="flex flex-col justify-center">
+                <div className="block shadow-xl rounded-xl p-6 border hover:bg-gray-100">
                     <p className="font-extrabold text-3xl text-center">Signin</p>
                     <div className="flex flex-col p-1 mt-2">
                         <label htmlFor="" className="font-bold">Username</label>
