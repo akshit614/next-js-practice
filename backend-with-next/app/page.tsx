@@ -4,8 +4,8 @@ import axios from "axios";
 
 const getData = async () => {
   // Adding delay for loading
-  await new Promise((r) => {setTimeout(r, 5000);})
-  const res = await axios.get('https://jsonplaceholder.typicode.com/posts');
+  // await new Promise((r) => {setTimeout(r, 5000);})
+  const res = await axios.get('http://localhost:3000/api/user');
   return res.data;
 }
 
@@ -16,8 +16,8 @@ export default async function Home() {
   return (
     <>
       <div>Hi there...</div>
-      <div>Id --- {JSON.stringify(data[0].id)}</div>
-      <div>Title --- {JSON.stringify(data[0].title)}</div>
+      <div>Id --- {JSON.stringify(data.username)}</div>
+      <div>Title --- {JSON.stringify(data.password)}</div>
     </>
   );
 }
