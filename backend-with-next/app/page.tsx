@@ -3,6 +3,8 @@ import axios from "axios";
 
 
 const getData = async () => {
+  // Adding delay for loading
+  await new Promise((r) => {setTimeout(r, 5000);})
   const res = await axios.get('https://jsonplaceholder.typicode.com/posts');
   return res.data;
 }
