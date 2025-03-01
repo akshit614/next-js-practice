@@ -1,13 +1,15 @@
 "use client"
 
 import axios from "axios";
+import { useRouter } from "next/navigation";
 import { useState } from "react"
+
 
 export default function Signup() {
 
 const [username, setUsername] = useState("");
 const [password, setPassword] = useState("");
-
+const router = useRouter();
     return (
         <div className="flex flex-col justify-center h-screen ">
             <div className="flex  justify-center">
@@ -33,6 +35,7 @@ const [password, setPassword] = useState("");
                             username,
                             password
                         })
+                        router.push("/")
                     }} className="border-4 p-1 px-5 rounded-full font-bold hover:bg-black hover:text-white hover:border-black transition-all">SignUp</button>
                 </div>
                 </div>

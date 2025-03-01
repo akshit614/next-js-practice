@@ -3,7 +3,7 @@
 // like page.tsx for frontend 
 // Yes it's opinionated 
 
-import { NextRequest } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 
 
 export function GET() {
@@ -18,7 +18,7 @@ export async function POST(req : NextRequest) {
     console.log(body);
     
 
-    return Response.json({ 
+    return NextResponse.json({ 
         message : "logged in"
     })
 }
