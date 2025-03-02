@@ -3,6 +3,7 @@
 import axios from "axios";
 import { useRouter } from "next/navigation";
 import { useState } from "react"
+import { signup } from "../actions/user";
 
 
 export default function Signup() {
@@ -31,10 +32,7 @@ const router = useRouter();
 
                 <div className="pt-4 pb-4 text-center">
                     <button onClick={async () => {
-                        await axios.post("http://localhost:3000/api/user", {
-                            username,
-                            password
-                        })
+                        await signup(username, password)
                         router.push("/")
                     }} className="border-4 p-1 px-5 rounded-full font-bold hover:bg-black hover:text-white hover:border-black transition-all">SignUp</button>
                 </div>
