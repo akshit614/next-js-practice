@@ -3,10 +3,8 @@
 // like page.tsx for frontend 
 // Yes it's opinionated 
 
-import { PrismaClient } from "@prisma/client";
+import client from "@/db"
 import { NextRequest, NextResponse } from "next/server";
-
-const client = new PrismaClient();
 
 export async function GET() {
     const user = await client.user.findFirst({})
@@ -19,18 +17,28 @@ export async function GET() {
 export async function POST(req : NextRequest) {
     const body = await req.json();
     console.log(body);
-    const user = await client.user.create({
-        data : {
-            username : body.username,
-            password : body.password
-        }
 
-    })
-
-    console.log(user.id);
+    try {
+        const user = await client.user.create({
+            data : {
+                username : body.username,
+                password : body.password
+            }
     
+        })
 
-    return NextResponse.json({ 
-        message : "logged in"
-    })
+        return NextResponse.json({ 
+            message : "logged in"
+        })
+    
+        console.log(user.id);
+    } catch (error) {
+        console.log(error);
+        return NextResponse.json({
+            message : "Error while signing up"
+        })
+    }
+
+    
+    
 }
