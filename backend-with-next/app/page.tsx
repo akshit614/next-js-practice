@@ -1,4 +1,3 @@
-import axios from "axios";
 // Async components is a feature of next js to fecth details from server to take advantage of SSR, can not be used in client component
 import client from "@/db"
 
